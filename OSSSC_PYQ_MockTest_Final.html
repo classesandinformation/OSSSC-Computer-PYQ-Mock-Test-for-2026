@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>OSSSC Computer PYQ | Classes and Information</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ede9e3;--bg2:#e4e0d9;--card:#faf7f3;--border:#cfc9c0;
+  --primary:#2d6a4f;--pl:#3a8a65;--pd:#1a3d2e;
+  --accent:#d4722a;--acl:#e8935a;
+  --wrong:#b83232;--wrongbg:#fdecea;
+  --right:#1a6e3c;--rightbg:#e5f5ec;
+  --text:#181512;--text2:#413c36;--text3:#756f68;
+  --shadow:rgba(0,0,0,.12);
+  --answered:#2d6a4f;--cur:#d4722a;--un:#cfc9c0;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px}
+.screen{display:none}
+.screen.active{display:block}
+
+/* ── REG ── */
+#reg{min-height:100vh;background:linear-gradient(150deg,#1a3d2e 0%,#2d6a4f 50%,#d4722a 100%);display:flex;align-items:center;justify-content:center;padding:24px 16px}
+#reg.active{display:flex}
+.reg-wrap{background:var(--card);border-radius:22px;padding:32px 22px 26px;width:100%;max-width:400px;box-shadow:0 24px 64px rgba(0,0,0,.35)}
+.reg-logo{text-align:center;margin-bottom:26px}
+.reg-logo .brand{font-size:11.5px;font-weight:900;color:var(--primary);letter-spacing:2px;text-transform:uppercase}
+.reg-logo h1{font-size:24px;font-weight:900;color:var(--text);line-height:1.15;margin:8px 0 5px}
+.reg-logo .sub{font-size:12.5px;color:var(--text3);font-weight:700}
+.badges{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin:14px 0 24px}
+.badge{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:800;border:1.5px solid}
+.bg{background:#e5f5ec;border-color:var(--primary);color:var(--pd)}
+.bo{background:#fef0e4;border-color:var(--accent);color:#a04d10}
+.bn{background:var(--bg2);border-color:var(--border);color:var(--text2)}
+.fgrp{margin-bottom:16px}
+.fgrp label{display:block;font-size:11.5px;font-weight:900;color:var(--text2);text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px}
+.fgrp input{width:100%;padding:13px 14px;border:2px solid var(--border);border-radius:11px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;color:var(--text);background:#fff;outline:none;transition:border .2s}
+.fgrp input:focus{border-color:var(--primary)}
+.btn-start{width:100%;padding:15px;background:linear-gradient(135deg,var(--primary) 0%,var(--pl) 100%);color:#fff;border:none;border-radius:13px;font-family:'Nunito',sans-serif;font-size:17px;font-weight:900;cursor:pointer;box-shadow:0 5px 18px rgba(45,106,79,.4);transition:transform .15s,box-shadow .15s;letter-spacing:.3px}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,106,79,.5)}
+.btn-start:active{transform:translateY(0)}
+.err{color:var(--wrong);font-size:12px;font-weight:700;margin-top:4px;display:none}
+
+/* ── INST ── */
+#inst{min-height:100vh;background:var(--bg);padding:16px;padding-bottom:30px}
+.inst-hdr{background:linear-gradient(135deg,var(--pd),var(--primary));color:#fff;padding:18px 16px;border-radius:14px;margin-bottom:14px;text-align:center}
+.inst-hdr h2{font-size:19px;font-weight:900}
+.inst-hdr p{font-size:12.5px;opacity:.82;margin-top:4px;font-weight:600}
+.ic{background:var(--card);border-radius:13px;padding:15px 15px;margin-bottom:11px;border:1.5px solid var(--border)}
+.ic h3{font-size:12.5px;font-weight:900;color:var(--pd);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:2px}
+.ibox{background:var(--bg2);border-radius:10px;padding:12px 8px;text-align:center;border:1.5px solid var(--border)}
+.ibox .v{font-size:22px;font-weight:900;color:var(--primary);display:block}
+.ibox .l{font-size:10.5px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.4px}
+.mt{width:100%;border-collapse:separate;border-spacing:0 4px}
+.mt td{padding:8px 12px;font-size:13px;font-weight:700;border-radius:8px}
+.rc td{background:var(--rightbg);color:var(--right)}
+.rw td{background:var(--wrongbg);color:var(--wrong)}
+.rs td{background:var(--bg2);color:var(--text3)}
+.mt td:last-child{text-align:right;font-family:'DM Mono',monospace}
+.rl{list-style:none}
+.rl li{padding:6px 0;font-size:13px;font-weight:600;color:var(--text2);border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:7px}
+.rl li:last-child{border-bottom:none}
+.rl li::before{content:"▸";color:var(--accent);font-size:11px;margin-top:2px;flex-shrink:0}
+.legrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.legi{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--text2)}
+.ldot{width:15px;height:15px;border-radius:4px;flex-shrink:0}
+.ldot.g{background:var(--answered)}
+.ldot.o{background:var(--cur)}
+.ldot.gr{background:var(--un);border:1.5px solid var(--border)}
+.btn-go{width:100%;padding:15px;background:linear-gradient(135deg,var(--accent) 0%,var(--acl) 100%);color:#fff;border:none;border-radius:13px;font-family:'Nunito',sans-serif;font-size:17px;font-weight:900;cursor:pointer;box-shadow:0 4px 16px rgba(212,114,42,.4);margin-top:6px}
+
+/* ── QUIZ ── */
+#quiz{display:none;flex-direction:column;min-height:100vh}
+#quiz.active{display:flex}
+.topbar{position:sticky;top:0;z-index:100;background:var(--pd);padding:9px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.topbar .qn{font-size:12.5px;font-weight:800;color:rgba(255,255,255,.65)}
+.topbar .qn span{color:#fff;font-size:16px}
+.tw{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);padding:5px 12px;border-radius:20px}
+.tw .ci{font-size:13px}
+.timer{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:#fff;letter-spacing:1px}
+.timer.warn{color:#ffc055}
+.timer.danger{color:#ff5555;animation:blink .8s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+.pbar{height:3px;background:rgba(255,255,255,.15)}
+.pfill{height:100%;background:var(--accent);transition:width .3s}
+.qscroll{flex:1;overflow-y:auto;padding:13px 13px 148px}
+.qcat{font-size:10.5px;font-weight:900;color:var(--primary);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:7px}
+.qtcard{background:var(--card);border:1.5px solid var(--border);border-radius:13px;padding:13px 13px 11px;margin-bottom:13px}
+.qtrow{display:flex;align-items:flex-start;gap:8px}
+.qbadge{min-width:26px;height:26px;border-radius:7px;background:var(--primary);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.qtxt{font-size:14.5px;font-weight:700;color:var(--text);line-height:1.55;flex:1}
+.ogrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:13px}
+.obtn{background:var(--card);border:2px solid var(--border);border-radius:12px;padding:10px 9px;cursor:pointer;display:flex;align-items:flex-start;gap:7px;font-family:'Nunito',sans-serif;transition:border .18s,background .18s;text-align:left}
+.obtn:hover{border-color:var(--primary);background:#eff8f4}
+.olbl{width:22px;height:22px;border-radius:6px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:900;color:var(--text2);flex-shrink:0;border:1.5px solid var(--border)}
+.otxt{font-size:13px;font-weight:700;color:var(--text);line-height:1.4;flex:1}
+.obtn.sel{border-color:var(--primary);background:#eaf4ef}
+.obtn.sel .olbl{background:var(--primary);color:#fff;border-color:var(--primary)}
+.obtn.correct{border-color:var(--right);background:var(--rightbg)}
+.obtn.correct .olbl{background:var(--right);color:#fff;border-color:var(--right)}
+.obtn.correct .otxt{color:var(--right);font-weight:800}
+.obtn.wrong{border-color:var(--wrong);background:var(--wrongbg)}
+.obtn.wrong .olbl{background:var(--wrong);color:#fff;border-color:var(--wrong)}
+.obtn.wrong .otxt{color:var(--wrong)}
+.obtn.dis{pointer-events:none}
+.expbox{background:var(--card);border:2px solid var(--border);border-left:4px solid var(--primary);border-radius:12px;padding:11px 13px;margin-bottom:13px;display:none}
+.expbox.show{display:block}
+.exphdr{font-size:11px;font-weight:900;color:var(--primary);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.exptxt{font-size:13px;font-weight:600;color:var(--text2);line-height:1.55}
+.botnav{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1.5px solid var(--border);padding:9px 13px 13px;z-index:90}
+.navrow{display:flex;gap:8px;margin-bottom:8px}
+.bnav{flex:1;padding:11px 6px;border-radius:10px;font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:800;cursor:pointer;border:2px solid;transition:all .15s}
+.bprev{background:transparent;border-color:var(--border);color:var(--text2)}
+.bprev:hover{background:var(--bg2)}
+.bnext{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 3px 10px rgba(45,106,79,.35)}
+.bsub{width:100%;padding:12px;background:linear-gradient(135deg,var(--accent),#b85e10);color:#fff;border:none;border-radius:10px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;cursor:pointer;box-shadow:0 3px 12px rgba(212,114,42,.4)}
+
+/* ── PALETTE ── */
+.pal{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:2px solid var(--border);border-radius:20px 20px 0 0;z-index:200;transform:translateY(calc(100% - 40px));transition:transform .3s ease}
+.pal.open{transform:translateY(0)}
+.ptog{display:flex;align-items:center;justify-content:space-between;padding:10px 15px;cursor:pointer;user-select:none}
+.ptog .ptl{font-size:12.5px;font-weight:900;color:var(--text)}
+.pstats{display:flex;gap:7px}
+.pst{font-size:11px;font-weight:800;padding:2px 9px;border-radius:10px}
+.pst.g{background:var(--rightbg);color:var(--right)}
+.pst.gr{background:var(--bg2);color:var(--text3)}
+.parr{font-size:15px;color:var(--text3);transition:transform .3s}
+.pal.open .parr{transform:rotate(180deg)}
+.pbody{overflow-y:auto;padding:6px 13px 16px;max-height:calc(55vh - 40px)}
+.pgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
+.pqb{aspect-ratio:1;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;cursor:pointer;border:1.5px solid var(--border);background:var(--un);color:var(--text2);transition:all .12s}
+.pqb.done{background:var(--answered);color:#fff;border-color:var(--answered)}
+.pqb.cur{background:var(--cur);color:#fff;border-color:var(--cur)}
+
+/* ── RESULT ── */
+#result{min-height:100vh;padding:15px;background:var(--bg)}
+.rhero{background:linear-gradient(135deg,var(--pd),var(--primary));border-radius:18px;padding:22px 18px;text-align:center;color:#fff;margin-bottom:14px;position:relative;overflow:hidden}
+.rhero::before{content:'';position:absolute;top:-30px;right:-30px;width:110px;height:110px;background:rgba(255,255,255,.06);border-radius:50%}
+.rname{font-size:12.5px;font-weight:700;opacity:.75;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.scircle{width:108px;height:108px;border-radius:50%;border:4px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:10px auto}
+.scircle .sv{font-size:28px;font-weight:900}
+.scircle .sm{font-size:11.5px;opacity:.7}
+.rgrade{font-size:18px;font-weight:900;margin:6px 0 2px}
+.rpct{font-size:13.5px;opacity:.8}
+.rsgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.rsbox{background:var(--card);border-radius:12px;padding:12px 8px;text-align:center;border:1.5px solid var(--border)}
+.rsbox .rv{font-size:22px;font-weight:900;display:block}
+.rsbox .rl2{font-size:10.5px;font-weight:800;color:var(--text3);text-transform:uppercase}
+.rsbox.c .rv{color:var(--right)}
+.rsbox.w .rv{color:var(--wrong)}
+.rsbox.s .rv{color:var(--text3)}
+.revsec h3{font-size:13.5px;font-weight:900;color:var(--text);margin-bottom:9px}
+.revc{background:var(--card);border-radius:12px;padding:12px 13px;margin-bottom:8px;border:1.5px solid var(--border)}
+.revc.rc{border-left:4px solid var(--right)}
+.revc.rw{border-left:4px solid var(--wrong)}
+.revc.rs2{border-left:4px solid var(--text3)}
+.revqn{font-size:10.5px;font-weight:900;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px}
+.rc .revqn{color:var(--right)}
+.rw .revqn{color:var(--wrong)}
+.rs2 .revqn{color:var(--text3)}
+.revqt{font-size:13px;font-weight:700;color:var(--text);margin-bottom:7px;line-height:1.4}
+.revar{font-size:12px;font-weight:700;display:flex;flex-direction:column;gap:3px}
+.revar .ya{color:var(--wrong)}
+.revar .ca{color:var(--right)}
+.revar .ex{color:var(--text3);font-weight:600;margin-top:3px;font-size:11.5px}
+.bret{width:100%;padding:14px;background:linear-gradient(135deg,var(--primary),var(--pl));color:#fff;border:none;border-radius:12px;font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;cursor:pointer;margin-top:6px;box-shadow:0 4px 14px rgba(45,106,79,.35)}
+
+/* ── MODAL ── */
+.moverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.52);z-index:500;align-items:center;justify-content:center;padding:18px}
+.moverlay.show{display:flex}
+.mbox{background:var(--card);border-radius:18px;padding:24px 20px;width:100%;max-width:340px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.mbox h3{font-size:18px;font-weight:900;color:var(--text);margin-bottom:8px}
+.mbox p{font-size:13px;color:var(--text2);font-weight:600;line-height:1.55;margin-bottom:18px}
+.mbtns{display:flex;gap:10px}
+.mbtns button{flex:1;padding:12px;border-radius:10px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer;border:2px solid}
+.mcancel{background:transparent;border-color:var(--border);color:var(--text2)}
+.mconfirm{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* ── TOAST ── */
+.toast{position:fixed;top:56px;left:50%;transform:translateX(-50%) translateY(-18px);background:var(--text);color:#fff;padding:8px 18px;border-radius:20px;font-size:12.5px;font-weight:700;opacity:0;transition:all .3s;z-index:1000;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- REGISTRATION -->
+<div id="reg" class="screen active">
+  <div class="reg-wrap">
+    <div class="reg-logo">
+      <div class="brand">📚 Classes and Information</div>
+      <h1>OSSSC Computer<br>PYQ Mock Test</h1>
+      <div class="sub">Previous Year Questions Practice</div>
+    </div>
+    <div class="badges">
+      <span class="badge bg">100 Questions</span>
+      <span class="badge bo">−0.5 Negative Mark</span>
+      <span class="badge bn">60 Minutes</span>
+    </div>
+    <div class="fgrp">
+      <label>Full Name *</label>
+      <input type="text" id="rname" placeholder="Enter your full name" autocomplete="off">
+      <div class="err" id="err-name">Please enter your full name</div>
+    </div>
+    <div class="fgrp">
+      <label>Mobile Number *</label>
+      <input type="tel" id="rmobile" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric">
+      <div class="err" id="err-mob">Enter valid 10-digit mobile number</div>
+    </div>
+    <button class="btn-start" onclick="doReg()">📋 View Instructions & Start</button>
+  </div>
+</div>
+
+<!-- INSTRUCTIONS -->
+<div id="inst" class="screen">
+  <div class="inst-hdr">
+    <h2>📋 Candidate Instructions</h2>
+    <p>Read carefully before starting the test</p>
+  </div>
+  <div class="ic">
+    <h3>📊 Exam Overview</h3>
+    <div class="igrid">
+      <div class="ibox"><span class="v">100</span><span class="l">Questions</span></div>
+      <div class="ibox"><span class="v">60</span><span class="l">Minutes</span></div>
+      <div class="ibox"><span class="v">+1</span><span class="l">Correct Mark</span></div>
+      <div class="ibox"><span class="v">−0.5</span><span class="l">Wrong Mark</span></div>
+    </div>
+  </div>
+  <div class="ic">
+    <h3>🎯 Marking Scheme</h3>
+    <table class="mt">
+      <tr class="rc"><td>✅ Correct Answer</td><td>+1 Mark</td></tr>
+      <tr class="rw"><td>❌ Wrong Answer</td><td>−0.5 Mark</td></tr>
+      <tr class="rs"><td>⬜ Skipped / Not Answered</td><td>0 Mark</td></tr>
+    </table>
+  </div>
+  <div class="ic">
+    <h3>📌 Important Rules</h3>
+    <ul class="rl">
+      <li>Each question has only ONE correct answer.</li>
+      <li>Explanation is shown immediately after selecting an option.</li>
+      <li>You can change your answer before final submit.</li>
+      <li>Timer auto-submits when 60 minutes are over.</li>
+      <li>Use the Question Palette to jump between questions.</li>
+      <li>Do NOT refresh the page during the test.</li>
+    </ul>
+  </div>
+  <div class="ic">
+    <h3>🎨 Palette Legend</h3>
+    <div class="legrow">
+      <div class="legi"><div class="ldot g"></div> Answered</div>
+      <div class="legi"><div class="ldot gr"></div> Not Visited</div>
+      <div class="legi"><div class="ldot o"></div> Current</div>
+    </div>
+  </div>
+  <button class="btn-go" onclick="startQuiz()">🚀 Start Test Now</button>
+</div>
+
+<!-- QUIZ -->
+<div id="quiz" class="screen">
+  <div class="topbar">
+    <div class="qn">Q <span id="cqn">1</span> / 100</div>
+    <div class="tw"><span class="ci">⏱</span><div class="timer" id="timer">60:00</div></div>
+  </div>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+  <div class="qscroll" id="qscroll">
+    <div class="qcat" id="qcat"></div>
+    <div class="qtcard">
+      <div class="qtrow">
+        <div class="qbadge" id="qbadge">1</div>
+        <div class="qtxt" id="qtxt"></div>
+      </div>
+    </div>
+    <div class="ogrid" id="ogrid"></div>
+    <div class="expbox" id="expbox">
+      <div class="exphdr">💡 Explanation</div>
+      <div class="exptxt" id="exptxt"></div>
+    </div>
+  </div>
+  <div class="botnav">
+    <div class="navrow">
+      <button class="bnav bprev" onclick="nav(-1)">◀ Previous</button>
+      <button class="bnav bnext" id="bnext" onclick="nav(1)">Next ▶</button>
+    </div>
+    <button class="bsub" onclick="confirmSub()">🏁 Submit Test</button>
+  </div>
+</div>
+
+<!-- PALETTE -->
+<div class="pal" id="pal">
+  <div class="ptog" onclick="togPal()">
+    <div class="ptl">📋 Question Palette</div>
+    <div class="pstats">
+      <span class="pst g" id="pst-done">0 Done</span>
+      <span class="pst gr" id="pst-left">100 Left</span>
+    </div>
+    <span class="parr" id="parr">▲</span>
+  </div>
+  <div class="pbody"><div class="pgrid" id="pgrid"></div></div>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="screen">
+  <div class="rhero">
+    <div class="rname" id="rname2"></div>
+    <div class="scircle">
+      <div class="sv" id="rscore"></div>
+      <div class="sm">out of 100</div>
+    </div>
+    <div class="rgrade" id="rgrade"></div>
+    <div class="rpct" id="rpct"></div>
+  </div>
+  <div class="rsgrid">
+    <div class="rsbox c"><span class="rv" id="rcor">0</span><span class="rl2">Correct</span></div>
+    <div class="rsbox w"><span class="rv" id="rwrong">0</span><span class="rl2">Wrong</span></div>
+    <div class="rsbox s"><span class="rv" id="rskip">0</span><span class="rl2">Skipped</span></div>
+  </div>
+  <div class="revsec">
+    <h3>📝 Detailed Review</h3>
+    <div id="revlist"></div>
+  </div>
+  <button class="bret" onclick="retake()">🔄 Retake Test</button>
+</div>
+
+<!-- MODAL -->
+<div class="moverlay" id="modal">
+  <div class="mbox">
+    <h3>Submit Test?</h3>
+    <p id="mmsg"></p>
+    <div class="mbtns">
+      <button class="mcancel" onclick="closeModal()">Cancel</button>
+      <button class="mconfirm" onclick="submitTest()">Submit Now</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── ALL 100 QUESTIONS FROM PDF ───────────────────────────────────────────────
+const Q=[
+  // Part I - Basic Computer Skill Q1-50
+  {c:"Computer Basics",q:"The difference between memory and storage is that the memory is _____ and storage is _____.",o:["Temporary, Permanent","Slow, Short","Permanent, Temporary","None of these"],a:0,e:"Memory (RAM) is temporary — it loses data when power is off. Storage (HDD/SSD) is permanent and retains data even after shutdown."},
+  {c:"Computer Hardware",q:"Which of the following holds the ROM, CPU, RAM & expansion cards?",o:["Hard Disk","Floppy Disk","Mother Board","None of these"],a:2,e:"The Motherboard (main board) holds and connects the CPU, RAM, ROM, and expansion slots for all other components."},
+  {c:"Computer Basics",q:"The language that the computer can understand and execute is called _______.",o:["Machine Language","System Program","Application Software","None of these"],a:0,e:"Machine Language (binary: 0s and 1s) is the only language directly understood and executed by the CPU."},
+  {c:"Storage",q:"A floppy disk contains:",o:["Circular tracks only","Sectors only","Both circular tracks & sectors","None of these"],a:2,e:"A floppy disk is organized into concentric circular tracks, and each track is divided into sectors for storing data."},
+  {c:"Storage",q:"Information retrieval is faster from:",o:["Floppy disk","Magnetic tape","Hard disk","None of these"],a:2,e:"Hard disk has much faster access times compared to floppy disks and magnetic tapes (which use sequential access)."},
+  {c:"Operating System",q:"Operating system is _______.",o:["A collection of hardware components","A collection of Software routines","A collection of input-output devices","None of these"],a:1,e:"An Operating System is a collection of software routines that manage computer hardware and software resources."},
+  {c:"Operating System",q:"Operating System provides a layered, user-friendly interface. Which option is correct?",o:["Link a Program with subroutines it references","Provides a layered, user-friendly interface","Enables a Programmer to draw a flow chart","None of these"],a:1,e:"The OS acts as an interface between the user and hardware, providing a user-friendly layered environment."},
+  {c:"Operating System",q:"Execution of two or more programs by a single CPU is known as:",o:["Multi Processing","Time Sharing","Multi Programming","None of these"],a:2,e:"Multi Programming keeps multiple programs in memory simultaneously so the CPU switches between them for efficient use."},
+  {c:"Networking",q:"Modem stands for:",o:["A type of Secondary memory","Main frame operating device memory","Modulator Demodulator","None of these"],a:2,e:"MODEM = MOdulator-DEModulator. It converts digital signals to analog for transmission and back to digital on receiving."},
+  {c:"Computer Basics",q:"Bug means:",o:["A logical error in a program","A difficult syntax error in a program","Documentary programs with efficient documentation","None of these"],a:0,e:"A 'Bug' is an error or flaw in a computer program that causes incorrect behavior. The term was popularized by Grace Hopper."},
+  {c:"Computer Basics",q:"The errors that can be pointed out by the compiler are:",o:["Syntax errors","Semantic errors","Logical errors","None of these"],a:0,e:"A compiler detects Syntax errors — violations of grammar rules of the programming language. Logical errors require runtime testing."},
+  {c:"Computer Hardware",q:"The communication line between the CPU, memory and peripheral is called a:",o:["Bus","Line","Media","None of these"],a:0,e:"A Bus is a communication system that transfers data between CPU, memory, and peripherals. Types: data, address, and control bus."},
+  {c:"Computer Basics",q:"Example of non-numerical data is:",o:["Employee address","Bank balance","Examination score","None of these"],a:0,e:"Non-numerical data includes text, addresses, names. Bank balance and examination score are numerical data."},
+  {c:"Data & Memory",q:"One thousand Bytes represent a:",o:["Megabyte","Giga byte","Kilobyte","None of these"],a:2,e:"1 Kilobyte (KB) ≈ 1000 bytes (exactly 1024 bytes). Hierarchy: Bit→Byte→KB→MB→GB→TB."},
+  {c:"Computer Basics",q:"A step by step procedure used to solve a problem is called:",o:["Operating system","Algorithm","Application program","None of these"],a:1,e:"An Algorithm is a well-defined, step-by-step procedure designed to solve a specific problem."},
+  {c:"Computer Basics",q:"The term 'baud' is a measure of the:",o:["Speed at which data travels over the communication line","Instruction execution time","Memory capacity","All of the above"],a:0,e:"Baud rate measures the number of signal changes per second in a communication channel — indicates data transmission speed."},
+  {c:"Operating System",q:"A bootstrap is a:",o:["Memory device","Small initialization program to start up a computer","Device to support the computer","An error correction technique"],a:1,e:"Bootstrap (boot loader) is a small program in ROM that initializes hardware and loads the OS when the computer starts."},
+  {c:"Networking",q:"Personal Computers can be connected together to form a _____.",o:["Server","Super Computer","Network","Enterprise"],a:2,e:"Multiple PCs connected together form a Network, allowing sharing of resources and communication."},
+  {c:"Computer Hardware",q:"The main component of a Desktop PC is the _____ which houses the computer's critical parts.",o:["Processor","Memory","Keyboard","System case"],a:3,e:"The System Case (tower/cabinet) houses critical components like motherboard, CPU, RAM, and storage drives."},
+  {c:"Networking",q:"The most important or powerful computer in a typical network is:",o:["Desktop","Network Client","Network Server","Network Station"],a:2,e:"The Network Server is the most powerful computer in a network; it manages shared resources and services for all clients."},
+  {c:"Input Devices",q:"The _____ is used by the tablet PC to write on the screen.",o:["finger","mouse","digitizer","stylus"],a:3,e:"A Stylus is a pen-shaped input device used with tablet PCs to write, draw, and navigate the touchscreen."},
+  {c:"Storage",q:"Which of the following is the largest unit of storage?",o:["KB","MB","TB","GB"],a:2,e:"Storage hierarchy (smallest to largest): Bit→Byte→KB→MB→GB→TB. 1 TB = 1024 GB."},
+  {c:"Data & Memory",q:"The contents of _____ are lost when the computer turns off.",o:["Storage","Input","Output","Memory (RAM)"],a:3,e:"RAM is volatile memory — its contents are completely lost when power is removed, unlike storage devices."},
+  {c:"Input Devices",q:"Ctrl, Shift and Alt are called _____ keys.",o:["Adjustment","Function","Modifier","Alphanumeric"],a:2,e:"Ctrl, Shift, and Alt are Modifier keys because they modify the behavior of other keys when pressed together."},
+  {c:"Input Devices",q:"To move the beginning of a line of text, press the _____ key.",o:["Page down","Page up","Enter","Home"],a:3,e:"The Home key moves the cursor to the beginning of the current line. Ctrl+Home goes to the beginning of the document."},
+  {c:"Input Devices",q:"The _____ determines how long you must hold down an alphanumeric key before the keyboard will repeat the character.",o:["Strike rate","Repeat rate","Default rate","Threshold rate"],a:1,e:"The Repeat Rate setting controls how long you hold a key before it starts repeating and how fast it repeats."},
+  {c:"Input Devices",q:"The traditional mechanical mouse uses a _____ to track the pointer position on the screen.",o:["Light sensor","Wheel","Ball","Ruler"],a:2,e:"Traditional mechanical mice use a rubber ball on the bottom that rolls as the mouse moves, tracked by rollers inside."},
+  {c:"Operating System",q:"The _____ key will launch the Start button.",o:["Esc","Shift","Windows","Shortcut"],a:2,e:"The Windows key (⊞) on the keyboard opens the Start menu in Windows operating system."},
+  {c:"Input Devices",q:"The pattern of printed lines on most products are called _____.",o:["Price","Bar code","Scanner","OCR"],a:1,e:"Bar codes are patterns of parallel lines of varying widths printed on products, scanned to retrieve product information."},
+  {c:"Input Devices",q:"Speech recognition programs must eliminate _____ before they can successfully recognize the spoken sounds.",o:["Jargon","Dialects","Accents","Background noise"],a:3,e:"Background noise is the primary challenge for speech recognition — it must filter ambient sounds to correctly identify words."},
+  {c:"Input Devices",q:"Kiosks use _____ to simplify the interface.",o:["Track pads","Touch screens","Trackballs","Voice input"],a:1,e:"Touch screens allow users to interact directly by touching the display, making kiosks very intuitive and user-friendly."},
+  {c:"Computer History",q:"The 1940 World Fair had a robot named _____.",o:["Robinson","Model B-9","Electro","Robbie"],a:3,e:"Westinghouse built 'Elektro' (also known as Robbie) for the 1939-40 World's Fair — a famous humanoid robot."},
+  {c:"Output Devices",q:"The _____ type of monitor is common on desktop computers and looks much like a standard Television.",o:["Cathode-ray-tube","Flat-panel","Monochrome","Projector"],a:0,e:"CRT (Cathode Ray Tube) monitors were the standard for desktops for decades, resembling television sets in appearance."},
+  {c:"Output Devices",q:"LCD monitors often have a smaller _____ than CRT monitors.",o:["Refresh rate","Viewing angle","Color depth","Price"],a:1,e:"LCD monitors traditionally had a narrower viewing angle than CRT monitors — image quality degraded at wide angles."},
+  {c:"Output Devices",q:"Dot matrix and band printers are _____ Printers.",o:["Laser","Impact","Ink jet","Thermal"],a:1,e:"Impact printers physically strike an ink ribbon against paper. Dot matrix and band printers are classic impact printer types."},
+  {c:"Output Devices",q:"Which of the following measures the speed of dot-matrix Printers?",o:["PPM","DPI","CPS","LPM"],a:2,e:"CPS (Characters Per Second) is the standard speed measurement for dot-matrix printers. PPM is for laser/inkjet printers."},
+  {c:"Output Devices",q:"In a laser printer, the _____ transfers the image to the paper.",o:["Laser","Roller","Toner","Drum"],a:3,e:"The Drum in a laser printer is electrically charged by a laser beam and then attracts toner, which is transferred to paper."},
+  {c:"Output Devices",q:"For a home user who has casual printing needs, _____ is the most important specification of a printer.",o:["Speed","Cost of use","Resolution","Paper size"],a:1,e:"Cost of use (ink/toner cost per page) is most important for casual home users since they don't print high volumes."},
+  {c:"Computer Hardware",q:"The computers use the _____ number system to store data and perform calculations.",o:["Decimal","Hexadecimal","Binary","Octal"],a:2,e:"Computers use Binary (0s and 1s) internally because electronic circuits represent two states: on (1) and off (0)."},
+  {c:"Data & Memory",q:"There are _____ bits in one byte.",o:["4","8","16","32"],a:1,e:"1 Byte = 8 bits. This is the fundamental unit. 4 bits = 1 Nibble, 8 bits = 1 Byte, 1024 Bytes = 1 KB."},
+  {c:"Computer Hardware",q:"The _____ performs simple math for the CPU.",o:["ALU","DIMM","BUS","Register"],a:0,e:"ALU (Arithmetic Logic Unit) performs arithmetic operations (add, subtract) and logical operations (AND, OR, NOT)."},
+  {c:"Operating System",q:"Removing a program properly requires _____ it.",o:["Deleting","Removing","Disabling","Uninstalling"],a:3,e:"Uninstalling properly removes a program, its registry entries, and associated files. Simply deleting leaves remnants."},
+  {c:"Storage",q:"A 500 MB file compressed to 125 MB enjoys a _____ compression ratio.",o:["2:01","3:01","4:01","5:01"],a:2,e:"Compression ratio = original size / compressed size = 500/125 = 4:1. The file is reduced to 1/4 of its original size."},
+  {c:"Operating System",q:"Medical devices often run a _____ operating system.",o:["Real time","Single user","Multiuser","Network"],a:0,e:"Real-Time OS (RTOS) is used in medical devices because it processes inputs and responds within strict time constraints."},
+  {c:"Operating System",q:"In modern operating system, the _____ feature has dramatically improved user productivity.",o:["Copy and paste","Command line interface","Multitasking","Intrusion detection"],a:2,e:"Multitasking allows users to run multiple programs simultaneously, dramatically improving productivity in modern OS."},
+  {c:"Operating System",q:"The program that allows the OS to work with a Printer or a Video card is a/an _____.",o:["Utility","Driver","Applet","System call"],a:1,e:"Device Drivers allow the OS to communicate with and control hardware devices like printers, video cards, and scanners."},
+  {c:"Computer Security",q:"The _____ protects your system from hackers.",o:["Snort","Backup","Anti-virus","Firewall"],a:3,e:"A Firewall monitors/controls network traffic based on security rules, creating a barrier between trusted and untrusted networks."},
+  {c:"Spreadsheets",q:"The power of spreadsheets lies in its _____.",o:["Cells","Work sheets","Labels","Formulas"],a:3,e:"Formulas are what make spreadsheets powerful — they can automatically calculate, update, and analyze data dynamically."},
+  {c:"Computer Graphics",q:"Animation effects in modern movies are often created with _____ Programs.",o:["JPG","CAD","CGI","IGF"],a:2,e:"CGI (Computer Generated Imagery) is used extensively in modern films to create realistic animation and special effects."},
+  {c:"Software",q:"Engineering designs are usually created using _____ software.",o:["CGI","Paint","CAD","Draw"],a:2,e:"CAD (Computer-Aided Design) software is the standard for engineering and architectural design, e.g., AutoCAD."},
+  // Part II Q61-100 (renumbered as Q51-90)
+  {c:"MS Excel",q:"Which of the following is an absolute cell reference in MS-Excel?",o:["!A!1","$A$1","#a#1","A1"],a:1,e:"Absolute cell reference uses $ before column and row: $A$1. This reference does NOT change when copied to other cells."},
+  {c:"MS PowerPoint",q:"In MS-PowerPoint, presentation designs regulate the formatting and layout and are commonly called:",o:["Design plates","Templates","Placeholders","Blueprints"],a:1,e:"Templates in PowerPoint are pre-designed slide layouts controlling colors, fonts, and overall visual design of the presentation."},
+  {c:"MS PowerPoint",q:"Which of the following should you use if you want all slides to have the same 'look' in MS-PowerPoint?",o:["The slide layout option","The add a slide option","Outline view","A presentation design template"],a:3,e:"A presentation design template applies consistent formatting, colors, and fonts across all slides in the presentation."},
+  {c:"MS Excel",q:"Which of the following is correct in MS-Excel?",o:["=power(2^3)","=power(2*3)","=power(2,3)","None of these"],a:2,e:"The POWER function syntax in Excel is =POWER(number, power). So =POWER(2,3) calculates 2³=8. Correct syntax uses a comma."},
+  {c:"MS Word",q:"How to go to Page number 345 in a MS-WORD document containing 465 pages?",o:["Press Ctrl+F, then enter 345 and press enter","Press Ctrl+R, then enter 345 and press enter","Press Alt+G, then enter 345 and press enter","Press Ctrl+G, then enter 345 and press enter"],a:3,e:"Ctrl+G opens the 'Go To' dialog in MS Word where you can jump to a specific page, section, line, or bookmark."},
+  {c:"MS Word",q:"What is the maximum number of columns in a table in MS-Word?",o:["43","53","63","73"],a:2,e:"MS Word allows a maximum of 63 columns in a table. There's no strict limit on rows."},
+  {c:"MS PowerPoint",q:"In MS-PowerPoint, the Header & Footer button can be found on the Insert tab in what group?",o:["Illustrations group","Object group","Text group","Tables group"],a:2,e:"In PowerPoint, Header & Footer is found in the Insert tab → Text group, along with WordArt, Text Box, and Date & Time."},
+  {c:"MS Excel",q:"In MS-Excel, to drag a selected range of data to another worksheet in the same workbook, use the:",o:["Ctrl key","Shift key","Alt key","Tab key"],a:2,e:"Hold Alt key while dragging to move data to another worksheet tab. Without Alt, drag only works within the same sheet."},
+  {c:"Data & Memory",q:"A _____ is approximately one billion bytes.",o:["Megabyte","Gigabyte","Terabyte","None of these"],a:1,e:"1 Gigabyte (GB) = approximately 1 billion bytes (exactly 1,073,741,824 bytes). 1 TB = approximately 1 trillion bytes."},
+  {c:"MS Excel",q:"What does the VLOOKUP function do in MS-Excel?",o:["Looks up text that contain 'v'","Checks whether text is same in one cell as next","Finds value in an array","All of the above"],a:2,e:"VLOOKUP (Vertical Lookup) searches for a value in the first column of a range and returns a value from a specified column."},
+  {c:"MS Excel",q:"A feature in MS-Excel that displays only the data in column(s) according to specified criteria:",o:["Formula","Sorting","Filtering","Pivot"],a:2,e:"Filtering displays only rows meeting specific criteria, hiding other rows. Access via Data tab → Filter button."},
+  {c:"MS Word",q:"In MS Word, which of the following do you use to change margins?",o:["Formatting toolbar","Page setup dialog box","Standard toolbar","Paragraph dialog box"],a:1,e:"Go to Page Layout (or Layout) tab → Page Setup group → Margins, or open Page Setup dialog box to set custom margins."},
+  {c:"MS PowerPoint",q:"In MS-PowerPoint how can you create uniform appearance by adding a background image to all slides?",o:["Edit page layout","Edit the slide master","Use the autocorrect wizard","All of the above"],a:1,e:"Editing the Slide Master applies changes to all slides at once, ensuring uniform appearance including background images."},
+  {c:"MS Excel",q:"In MS-Excel the cell reference for a range of cells starting in cell C1, going to column H and down to row 10 is:",o:["C1:10H","C1:H10","C1:H-10","C1:H:10"],a:1,e:"Cell range is written as StartCell:EndCell. C1:H10 means from column C row 1 to column H row 10."},
+  {c:"MS Word",q:"By default, your documents print in _____ mode in MS Word.",o:["Landscape","Portrait","Page Setup","Print View"],a:1,e:"MS Word defaults to Portrait mode (vertical: taller than wide). Change via Layout → Orientation → Landscape if needed."},
+  {c:"MS Word",q:"What is the function of Ctrl+B in MS Word?",o:["Converts text to next larger font size","Adds a line break to document","Makes the selected text bold","Applies italic to text"],a:2,e:"Ctrl+B makes selected text Bold. Ctrl+I = Italic, Ctrl+U = Underline. These are the basic text formatting shortcuts."},
+  {c:"MS Excel",q:"In MS-Excel you can create hyperlinks from the Excel workbook to:",o:["A webpage on company internet","A web page on the internet","Other Office application documents","All of the above"],a:3,e:"Excel hyperlinks can link to web pages, internal documents, other Office files, email addresses, and network locations."},
+  {c:"MS Excel",q:"In MS-Excel what does SUMIF function do?",o:["Adds cell values based on a condition","Adds all numbers in a range","Returns a subtotal in a list","Both A and B"],a:0,e:"SUMIF adds values in a range that meet a specified condition. Syntax: =SUMIF(range, criteria, sum_range)."},
+  {c:"MS Excel",q:"In order to enter multiple rows in a cell in MS-Excel, which key(s) should be pressed after each line?",o:["Enter","Ctrl + Enter","Alt + Enter","None of these"],a:2,e:"Alt+Enter creates a line break inside a cell in MS Excel. Regular Enter moves to the next cell."},
+  {c:"Networking",q:"FTP stands for:",o:["File Transit Protocol","File Translate Protocol","File Transfer Protocol","File Typing Protocol"],a:2,e:"FTP = File Transfer Protocol — a standard network protocol used to transfer files between client and server on a network."},
+  {c:"MS Excel",q:"A function inside another function is called a _____ function.",o:["Nested","Round","Sum","Text"],a:0,e:"A Nested function is when one function is used as an argument inside another. Example: =IF(SUM(A1:A10)>100,'Pass','Fail')."},
+  {c:"MS Excel",q:"The drag and drop method of copying or moving in MS-Excel:",o:["Can be used between a worksheet but not workbooks","Can be used between both workbooks and worksheets","Can be used between workbooks but not worksheets","None of these"],a:1,e:"Drag and drop can be used within or between worksheets (hold Alt) and even between workbooks in MS Excel."},
+  {c:"MS PowerPoint",q:"In MS-PowerPoint, if you want to insert some slides from other presentation into current one, choose:",o:["From Insert menu choose Slides from Files","From Insert menu choose Slides from Presentation","From Insert menu choose Slides","None of the above"],a:0,e:"In PowerPoint, go to Insert → Slides from Files (or Reuse Slides) to import slides from another presentation file."},
+  {c:"MS Word",q:"For addition of a row at the end of a table in MS Word, move the cursor at the end and use:",o:["Alt","Tab","Ctrl","Shift"],a:1,e:"Pressing Tab at the last cell of a table in MS Word automatically adds a new row at the end of the table."},
+  {c:"MS Excel",q:"Which one is NOT a Function in MS-Excel?",o:["SUM","AVG","MAX","MIN"],a:1,e:"AVG is not a valid Excel function. The correct function is AVERAGE. SUM, MAX, and MIN are all valid Excel functions."},
+  {c:"MS Excel",q:"Which of these is a shortcut to add a border to the selected cell in MS Excel?",o:["Ctrl + T","Ctrl + B","Shift + B","Ctrl + Shift + &"],a:3,e:"Ctrl+Shift+& applies the outline border to selected cells in MS Excel. Ctrl+Shift+_ removes borders."},
+  {c:"MS Word",q:"Which key should be pressed to start a new paragraph in MS-Word?",o:["Down Cursor Key","Enter Key","Shift + Enter","Ctrl + Enter"],a:1,e:"Enter creates a new paragraph in MS Word. Shift+Enter creates a new line within same paragraph. Ctrl+Enter = page break."},
+  {c:"Computer Basics",q:"Which input device cannot be used to work in MS Office?",o:["Scanner","Light Pen","Mouse","Joy Stick"],a:3,e:"A Joystick is primarily a gaming device and is not used for standard MS Office work. Scanner, Light Pen, and Mouse can be used."},
+  {c:"Operating System",q:"Which Key is used to rename a file in Windows Operating System?",o:["F1","F5","F2","None of these"],a:2,e:"F2 renames the selected file/folder in Windows Explorer. F5 refreshes, F1 opens Help."},
+  {c:"MS Excel",q:"In MS-Excel how can you remove borders applied in cells?",o:["Choose None on Border tab of Format cells","Open list on Border tool in Formatting toolbar then choose first tool (no border)","Both of the above","None of the above"],a:2,e:"Borders can be removed both ways: Format Cells → Border tab → None, or from the Border tool dropdown in the toolbar."},
+  {c:"MS Excel",q:"In MS-Excel which function displays row data in a column or column data in a row?",o:["Hyperlink","Index","Rows","Transpose"],a:3,e:"TRANSPOSE function converts rows to columns and vice versa. It's an array function that reorganizes data orientation."},
+  // JC-COMP-2015 Q1-18 (renumbered as Q91-100)
+  {c:"MS Excel",q:"The Name Box appears at the:",o:["Left of the formula bar","Below the status bar","Right of the formula bar","Below the menu bar"],a:0,e:"The Name Box is located at the left of the Formula Bar in Excel. It displays the cell address of the currently active cell."},
+  {c:"MS Excel",q:"In Excel, the intersection of a row and column is called:",o:["Box","Cell","Grid","Table"],a:1,e:"A Cell is formed at the intersection of a row and a column. Cells are identified by column letter + row number (e.g., A1)."},
+  {c:"Computer Basics",q:"Word offers certain ways in which the user can move around in a document. What are they?",o:["By scrolling","By moving to a specific page","Directly to first and last page","All A, B, and C"],a:3,e:"MS Word allows navigation by scrolling, moving to specific pages (Ctrl+G), and using Ctrl+Home/End for first/last page."},
+  {c:"Computer Basics",q:"Analog computer works on the supply of:",o:["Continuous electrical pulses","Electrical pulses but not continuous","Magnetic strength","None of the above"],a:0,e:"Analog computers work with continuous electrical signals (voltages) that vary smoothly over time, unlike digital computers."},
+  {c:"Computer Basics",q:"Who invented the high level language C?",o:["Dennis M. Ritchie","Niklaus Wirth","Seymour Papert","Donald Kunth"],a:0,e:"Dennis M. Ritchie invented the C programming language at Bell Labs in the early 1970s. Niklaus Wirth created Pascal."},
+  {c:"Computer Basics",q:"PowerPoint is a component of?",o:["Windows 7","Microsoft Office","All of the above","None of these"],a:1,e:"Microsoft PowerPoint is a component of Microsoft Office suite, along with Word, Excel, Access, and Outlook."},
+  {c:"Computer History",q:"Who designed the first electronic computer ENIAC?",o:["Van-Neumann","Joseph M Jacquard","J. Presper Eckert & John W Mauchly","None of the above"],a:2,e:"ENIAC (Electronic Numerical Integrator and Computer) was built by J. Presper Eckert and John Mauchly at University of Pennsylvania (1945)."},
+  {c:"Networking",q:"WAN stands for:",o:["Wap Area Network","Wide Area Network","Wide Array Net","Wireless Area Network"],a:1,e:"WAN = Wide Area Network. It connects computers over large geographical distances. The Internet is the world's largest WAN."},
+  {c:"Operating System",q:"Which menu is used to open, close and save PowerPoint Presentation?",o:["Tool","Window","File","Both A and B"],a:2,e:"The File menu (or File tab in modern versions) contains Open, Close, Save, and Save As commands for presentations."},
+  {c:"MS Word",q:"Click at the beginning, press which key and simultaneously click at the end to select text in MS Word?",o:["Shift","Ctrl","Alt","Any of the above"],a:0,e:"Hold Shift and click at the end to select a text range in MS Word. This selects all text between the two click points."},
+  // Additional important questions
+  {c:"MS Excel",q:"An excel worksheet can have a maximum _____ number of columns.",o:["256","255","16384","258"],a:2,e:"Excel 2007+ supports maximum 16,384 columns (column XFD) and 1,048,576 rows. Older Excel had only 256 columns."},
+  {c:"MS Excel",q:"On an excel sheet, the active cell is indicated by:",o:["A dotted border","A blinking border","A dark wide border","By italic text"],a:2,e:"The active cell in Excel is highlighted with a dark, thick green border. The cell address appears in the Name Box."},
+  {c:"Computer History",q:"The man who built the first Mechanical Calculator was:",o:["Joseph Marie Jacquard","John Mauchly","Blaise Pascal","Harward Ailken"],a:2,e:"Blaise Pascal built the Pascaline in 1642 — the first mechanical calculator that could perform addition and subtraction."},
+  {c:"Computer Basics",q:"Which of the following is not a language for computer programming?",o:["WINDOWS","PASCAL","BASIC","COBOL"],a:0,e:"WINDOWS is an operating system, not a programming language. PASCAL, BASIC, and COBOL are all programming languages."},
+  {c:"MS Word",q:"Which would you choose to save a document with a new name?",o:["Press Ctrl+S","Click File, Save","Click Tools, Options, Save","Click File, Save As"],a:3,e:"'File → Save As' saves the document with a new name or location. Ctrl+S saves with the existing name."},
+  {c:"MS Excel",q:"Which among following is a symbol of division in Excel?",o:["/","D","Div.","\\"],a:0,e:"In Excel, the forward slash (/) is the division operator. Example: =A1/B1 divides value in A1 by value in B1."},
+  {c:"Data & Memory",q:"Which of the following is a temporary Primary Memory?",o:["PROM","RAM","ROM","EPROM"],a:1,e:"RAM (Random Access Memory) is volatile/temporary primary memory. It loses all data when power is off. ROM is non-volatile."},
+  {c:"Networking",q:"Abbreviation www in www.yahoo.com stands for:",o:["World word in Wonder","World Wide Web","World Processing Software","Wonderful World Web"],a:1,e:"www = World Wide Web — a system of interlinked hypertext documents accessed via the Internet. Created by Tim Berners-Lee (1989)."},
+  {c:"Software",q:"Which of the following programs compresses large files into a smaller file?",o:["WinZip","WinShrink","WinStyle","None of above"],a:0,e:"WinZip is a popular file compression utility that compresses files into .zip archives to reduce file size."},
+  {c:"MS Word",q:"The new selected Font applies to:",o:["Full document","All text above the current cursor position","The selected text","Only to headings"],a:2,e:"When you select text and change the font, the new font applies only to the selected text, not the entire document."},
+  {c:"MS Excel",q:"How many Chart types are available in Excel?",o:["12","11","18","20"],a:2,e:"MS Excel offers 18 different chart types including Column, Bar, Line, Pie, Area, Scatter, Stock, Surface, Radar, etc."},
+  {c:"MS Excel",q:"To insert three columns between columns A and B, you would:",o:["Select column A","Select A and B","Select B","All of above"],a:2,e:"To insert 3 columns between A and B, select column B, then right-click and select Insert 3 times (or select 3 columns starting at B)."},
+  {c:"Input Devices",q:"A light-sensitive device that converts drawings, printed text or other images into digital form is:",o:["Keyboard","Plotter","Scanner","OMR"],a:2,e:"A Scanner converts physical documents, photos, and drawings into digital images using a light-sensitive sensor."},
+  {c:"Software",q:"The Software in a computer:",o:["Enhances capabilities of hardware machine","Increases the speed of central processing unit","Both of above","None of above"],a:2,e:"Software enhances hardware capabilities AND effectively increases processing speed through efficient algorithms and management."},
+  {c:"MS Word",q:"What is the default Font used in MS Word 2007 document?",o:["Times New Roman","Arial","Calibri","Preeti"],a:2,e:"MS Word 2007 changed the default font to Calibri (11pt) from Times New Roman. Calibri is a humanist sans-serif typeface."},
+  {c:"MS Excel",q:"Which of the following shortcut key can be used for creating a Chart from the selected cells?",o:["F11","F10","F4","F2"],a:0,e:"F11 creates a chart on a new chart sheet from selected data in Excel. Alt+F1 creates an embedded chart in the same sheet."},
+  {c:"Output Devices",q:"CRT which stands for Cathode Ray Tube is a:",o:["Hollow tube","Vacuum tube","Round tube","Long tube"],a:1,e:"CRT is a vacuum tube containing an electron gun and a phosphorescent screen. The vacuum inside allows electron beams to travel freely."},
+  {c:"Software",q:"The set of computer instructions or programs that enables the hardware to perform different tasks is called:",o:["Software","Hardware","Utility","Both A and B"],a:0,e:"Software is the set of programs, instructions, and data that tell hardware how to perform tasks. Without software, hardware is useless."},
+  {c:"Operating System",q:"The date and time display on:",o:["Taskbar","Status bar","System tray","Launch pad"],a:2,e:"The System Tray (notification area) on the right side of the Windows taskbar displays the clock, date, and system icons."},
+  {c:"MS Word",q:"What is the shortcut key to open Font dialog box?",o:["Ctrl + F","Alt + Ctrl + F","Ctrl + D","Ctrl + Shift + D"],a:2,e:"Ctrl+D opens the Font dialog box in MS Word where you can change font, size, style, color, and other text formatting options."},
+  {c:"MS Excel",q:"Excel worksheet data can be shared with Word document by:",o:["Inserting an Excel file into Word","Link Excel data to Word document","Copy and Paste Excel worksheet into Word","All the above"],a:3,e:"Excel data can be shared with Word by inserting, linking (updates automatically), or copy-pasting. All three methods are valid."},
+  {c:"MS Excel",q:"Which command is used to calculate the total characters in a cell?",o:["Len","Length","Mid","Sid"],a:0,e:"=LEN(text) returns the number of characters in a text string. Example: =LEN('Hello') returns 5."},
+  {c:"Computer Basics",q:"The basic goal of computer process is to convert data into:",o:["Files","Tables","Graphics","Information"],a:3,e:"The primary purpose of computer data processing is to convert raw Data into meaningful Information."},
+  {c:"Networking",q:"URL stands for:",o:["Universal Research List","Universal Resource List","Uniform Resource Locator","Uniform Research Locator"],a:2,e:"URL = Uniform Resource Locator — the complete web address used to locate a specific resource on the Internet."},
+  {c:"MS Word",q:"WYSIWYG stands for:",o:["What you see is what you get","What you smell is what you get","Where you suspect is where you go","None of these"],a:0,e:"WYSIWYG = What You See Is What You Get. The document appears in the editor exactly as it will look when printed."},
+  {c:"Computer Security",q:"VIRUS stands for:",o:["Virtual Important Resource Under Search","Vital Information Resource Under Seize","Verify Interchange Result Until Source","Very Important Record User Searched"],a:1,e:"VIRUS = Vital Information Resources Under Seize. Computer viruses attach to legitimate programs and replicate to cause harm."},
+  {c:"MS Excel",q:"By default, the Cell content alignment is:",o:["Left aligned","Text left aligned and numbers right","Text right aligned and numbers left","Centrally aligned"],a:1,e:"By default in Excel: text labels align left and numbers align right. This makes it easy to distinguish between text and numeric data."},
+  {c:"MS Excel",q:"Which function is used to display the current date and time in a cell in Excel?",o:["Today","Now","Day","Current"],a:1,e:"=NOW() returns current date AND time. =TODAY() returns only date. Both are dynamic and update when the worksheet recalculates."},
+  {c:"MS Word",q:"What is the shortcut key to 'Undo' the last action in a document?",o:["Ctrl + X","Ctrl + Y","Ctrl + Z","None of above"],a:2,e:"Ctrl+Z undoes the last action in MS Word. Ctrl+Y redoes (reverses undo). You can press Ctrl+Z multiple times to undo multiple actions."},
+  {c:"Networking",q:"What kind of attempts is made by individuals to obtain confidential information by falsifying their identity?",o:["Spyware Scams","Phishing Scams","Computer Virus","None of the Above"],a:1,e:"Phishing is a cybercrime where attackers impersonate legitimate entities to trick users into revealing passwords, card numbers, etc."},
+  {c:"Computer Basics",q:"Which of the following is not one of the PowerPoint views?",o:["Slide show view","Slide view","Presentation view","Outline view"],a:2,e:"PowerPoint views include Normal, Slide Sorter, Notes Page, Slide Show, and Outline view. 'Presentation view' does not exist."},
+  {c:"MS Word",q:"Which is the function button for spelling and grammar check in MS Word?",o:["F3","F5","F7","F9"],a:2,e:"F7 opens the Spelling and Grammar checker in MS Word. It checks the entire document for spelling and grammar mistakes."},
+  {c:"MS Excel",q:"The _____ feature of MS Excel quickly completes a series of data.",o:["Auto Complete","Auto Fill","Fill Handle","Sorting"],a:1,e:"Auto Fill automatically fills a data series based on a pattern. Drag the fill handle or use Series dialog for custom fills."},
+  {c:"MS Word",q:"Which is the short cut of 'replace' in MS Word?",o:["Ctrl + R","Ctrl + F","Ctrl + H","Ctrl + Y"],a:2,e:"Ctrl+H opens Find and Replace in MS Word. Ctrl+F opens Find only. Ctrl+H lets you find text and replace it with new text."},
+  {c:"MS PowerPoint",q:"What is the shortcut key to insert new slide in current presentation?",o:["Ctrl + N","Ctrl + M","Ctrl + S","Ctrl + I"],a:1,e:"Ctrl+M inserts a new slide in PowerPoint at the current position. Ctrl+N creates a new presentation file."},
+  {c:"MS PowerPoint",q:"In MS-PowerPoint the entry effect as one slide replaces another in a show is called:",o:["Animation","Slide transition","Custom animation","Preset animation"],a:1,e:"Slide Transition is the visual effect between slides during a presentation. Animation applies to objects within a slide."},
+  {c:"MS Word",q:"The shortcut command of 'save' in MS Word:",o:["Ctrl + A","ALT + F + S","Ctrl + S","Both B and C"],a:3,e:"Both Ctrl+S and Alt+F+S save a document in MS Word. Ctrl+S is the quickest shortcut; Alt+F+S goes through File menu."},
+  {c:"MS Word",q:"Ctrl+Y is the short cut key for MS Word to:",o:["Undo the last action","Paste the selected text","Cut the selected text","Redo the last action"],a:3,e:"Ctrl+Y performs Redo in MS Word — it reverses an Undo action. Ctrl+Z = Undo. You can redo multiple steps."},
+  {c:"MS PowerPoint",q:"What type of chart is useful for showing trends or changes over time in MS-Excel?",o:["Pie Chart","Column Chart","Line Chart","Dot Graph"],a:2,e:"Line Chart is best for showing trends over time (time series). It connects data points with lines showing direction and rate of change."},
+  {c:"MS Word",q:"What is the shortcut command for 'replace' in MS Word?",o:["Ctrl + R","Ctrl + F","Ctrl + H","Ctrl + Y"],a:2,e:"Ctrl+H opens the Find and Replace dialog in MS Word. You can find specific text and replace it with different text."},
+];
+
+// ─── STATE ──────────────────────────────────────────────────────────────────
+let cand={}, answers=new Array(Q.length).fill(-1), cur=0, tLeft=60*60, tInt=null, palOpen=false, submitted=false;
+
+// ─── REGISTRATION ─────────────────────────────────────────────────────────
+function doReg(){
+  const name=document.getElementById('rname').value.trim();
+  const mob=document.getElementById('rmobile').value.trim();
+  let ok=true;
+  document.getElementById('err-name').style.display='none';
+  document.getElementById('err-mob').style.display='none';
+  if(!name){document.getElementById('err-name').style.display='block';ok=false;}
+  if(!/^\d{10}$/.test(mob)){document.getElementById('err-mob').style.display='block';ok=false;}
+  if(!ok)return;
+  cand={name,mob};
+  // Send to Formspree silently
+  const fd=new FormData();
+  fd.append('name',name);fd.append('mobile',mob);fd.append('_subject','New Registration – '+name);
+  fetch('https://formspree.io/f/xzdjnywy',{method:'POST',body:fd,headers:{'Accept':'application/json'}}).catch(()=>{});
+  showScreen('inst');
+}
+
+// ─── START QUIZ ──────────────────────────────────────────────────────────
+function startQuiz(){
+  showScreen('quiz');
+  buildPal();
+  loadQ(0);
+  startTimer();
+}
+
+// ─── TIMER ───────────────────────────────────────────────────────────────
+function startTimer(){
+  tInt=setInterval(()=>{
+    tLeft--;
+    const m=Math.floor(tLeft/60),s=tLeft%60;
+    const el=document.getElementById('timer');
+    el.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    el.className='timer';
+    if(tLeft<=300)el.classList.add('warn');
+    if(tLeft<=60){el.classList.remove('warn');el.classList.add('danger');}
+    if(tLeft<=0){clearInterval(tInt);showToast('⏰ Time Up! Auto-submitting...');setTimeout(submitTest,1500);}
+  },1000);
+}
+
+// ─── LOAD QUESTION ───────────────────────────────────────────────────────
+function loadQ(idx){
+  cur=idx;
+  const q=Q[idx],ua=answers[idx];
+  document.getElementById('cqn').textContent=idx+1;
+  document.getElementById('qbadge').textContent=idx+1;
+  document.getElementById('qcat').textContent='📂 '+q.c;
+  document.getElementById('qtxt').textContent=q.q;
+  document.getElementById('pfill').style.width=((idx+1)/Q.length*100)+'%';
+  // Options
+  const grid=document.getElementById('ogrid');
+  grid.innerHTML='';
+  ['A','B','C','D'].forEach((lbl,i)=>{
+    const btn=document.createElement('button');
+    btn.className='obtn';
+    if(ua!==-1){
+      btn.classList.add('dis');
+      if(i===q.a)btn.classList.add('correct');
+      else if(i===ua)btn.classList.add('wrong');
+    }else{btn.onclick=()=>pick(i);}
+    btn.innerHTML=`<div class="olbl">${lbl}</div><div class="otxt">${q.o[i]}</div>`;
+    grid.appendChild(btn);
+  });
+  // Explanation
+  const eb=document.getElementById('expbox');
+  document.getElementById('exptxt').textContent=q.e;
+  ua!==-1?eb.classList.add('show'):eb.classList.remove('show');
+  // Next btn
+  document.getElementById('bnext').textContent=idx===Q.length-1?'Last ✓':'Next ▶';
+  updatePal();
+  document.getElementById('qscroll').scrollTo({top:0,behavior:'smooth'});
+}
+
+function pick(i){
+  if(submitted)return;
+  answers[cur]=i;
+  const done=answers.filter(a=>a!==-1).length;
+  document.getElementById('pst-done').textContent=done+' Done';
+  document.getElementById('pst-left').textContent=(Q.length-done)+' Left';
+  loadQ(cur);
+}
+
+function nav(d){
+  const n=cur+d;
+  if(n<0||n>=Q.length)return;
+  loadQ(n);
+  if(palOpen)togPal();
+}
+
+// ─── PALETTE ─────────────────────────────────────────────────────────────
+function buildPal(){
+  const g=document.getElementById('pgrid');g.innerHTML='';
+  Q.forEach((_,i)=>{
+    const b=document.createElement('div');
+    b.className='pqb';b.id='pb'+i;b.textContent=i+1;
+    b.onclick=()=>{loadQ(i);if(palOpen)togPal();};
+    g.appendChild(b);
+  });
+}
+
+function updatePal(){
+  Q.forEach((_,i)=>{
+    const b=document.getElementById('pb'+i);if(!b)return;
+    b.className='pqb';
+    if(i===cur)b.classList.add('cur');
+    else if(answers[i]!==-1)b.classList.add('done');
+  });
+}
+
+function togPal(){
+  palOpen=!palOpen;
+  document.getElementById('pal').classList.toggle('open',palOpen);
+  document.getElementById('parr').textContent=palOpen?'▼':'▲';
+}
+
+// ─── SUBMIT ──────────────────────────────────────────────────────────────
+function confirmSub(){
+  const un=answers.filter(a=>a===-1).length;
+  document.getElementById('mmsg').innerHTML=`You answered <b>${Q.length-un}</b> of <b>${Q.length}</b> questions.<br><b>${un}</b> unanswered will get 0 marks.<br>Confirm submit?`;
+  document.getElementById('modal').classList.add('show');
+}
+function closeModal(){document.getElementById('modal').classList.remove('show');}
+
+function submitTest(){
+  closeModal();clearInterval(tInt);submitted=true;
+  let cor=0,wr=0,sk=0;
+  answers.forEach((a,i)=>{if(a===-1)sk++;else if(a===Q[i].a)cor++;else wr++;});
+  const score=(cor-(wr*.5)).toFixed(1);
+  const pct=((parseFloat(score)/Q.length)*100).toFixed(1);
+  // Post result to Formspree
+  const fd=new FormData();
+  fd.append('name',cand.name);fd.append('mobile',cand.mob);
+  fd.append('score',score+'/'+Q.length);fd.append('correct',cor);fd.append('wrong',wr);fd.append('skipped',sk);
+  fd.append('percentage',pct+'%');fd.append('_subject','Result – '+cand.name+' – Score: '+score);
+  fetch('https://formspree.io/f/xzdjnywy',{method:'POST',body:fd,headers:{'Accept':'application/json'}}).catch(()=>{});
+  showResult(cor,wr,sk,score,pct);
+}
+
+function showResult(cor,wr,sk,score,pct){
+  showScreen('result');
+  document.getElementById('rname2').textContent='🎓 '+cand.name;
+  document.getElementById('rscore').textContent=score;
+  document.getElementById('rcor').textContent=cor;
+  document.getElementById('rwrong').textContent=wr;
+  document.getElementById('rskip').textContent=sk;
+  const p=parseFloat(pct);
+  document.getElementById('rgrade').textContent=p>=85?'🏆 Excellent!':p>=70?'🌟 Very Good!':p>=55?'👍 Good':p>=40?'📈 Average':'📚 Keep Practicing';
+  document.getElementById('rpct').textContent='Percentage: '+pct+'%';
+  const list=document.getElementById('revlist');list.innerHTML='';
+  Q.forEach((q,i)=>{
+    const ua=answers[i];
+    let cls,tag,ya='';
+    if(ua===-1){cls='rs2';tag='⬜ Skipped';}
+    else if(ua===q.a){cls='rc';tag='✅ Correct';}
+    else{cls='rw';tag='❌ Wrong';ya=`<div class="ya">Your Answer: ${q.o[ua]}</div>`;}
+    list.innerHTML+=`<div class="revc ${cls}"><div class="revqn">Q${i+1} — ${tag} | ${q.c}</div><div class="revqt">${q.q}</div><div class="revar">${ya}<div class="ca">✅ Correct: ${q.o[q.a]}</div><div class="ex">💡 ${q.e}</div></div></div>`;
+  });
+}
+
+// ─── UTILS ───────────────────────────────────────────────────────────────
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+function retake(){
+  answers=new Array(Q.length).fill(-1);cur=0;tLeft=60*60;submitted=false;palOpen=false;
+  clearInterval(tInt);
+  document.getElementById('rname').value='';document.getElementById('rmobile').value='';
+  showScreen('reg');
+}
+</script>
+</body>
+</html>
